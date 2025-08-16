@@ -3,16 +3,19 @@ import { motion } from "framer-motion";
 
 export default function FooterButtons() {
   const Main = [
-    { name: "github", link: "/" },
-    { name: "Twitter", link: "/" },
+    { name: "GitHub", link: "https://github.com/meethp20" },
+    { name: "LinkedIn", link: "https://www.linkedin.com/in/meeth-patel-b35b652b2/" },
   ];
 
   return (
-   <div className="flex border-b border-white/20 gap-3 pt-[20px] pb-4 mb-4">
-      {Main.map((Object, idx) => (
-        <motion.button
-          className="text-zinc-100 bg-zinc-800 rounded-2xl text-xs px-4 py-1.5 group overflow-hidden relative"
+    <div className="flex border-b border-white/20 gap-3 pt-[20px] pb-4 mb-4">
+      {Main.map((obj, idx) => (
+        <motion.a
+          href={obj.link}
           key={idx}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex gap-x-2 items-center text-zinc-100 bg-zinc-800 rounded-2xl text-xs px-4 py-1.5 group overflow-hidden relative"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -30,29 +33,18 @@ export default function FooterButtons() {
             transition: { duration: 0.1 }
           }}
         >
-          <motion.div className="flex gap-x-2 items-center">
-            <motion.a 
-              href={Object.link} 
-              className=""
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.15 }
-              }}
-            >
-              {Object.name}
-            </motion.a>
-            <motion.img 
-              src="/move-up-right.svg" 
-              alt="arrow"  
-              className="w-3.5 h-3.5 filter invert brightness-0 invert"
-              whileHover={{
-                scale: 1.15,
-                rotate: 12,
-                transition: { duration: 0.15 }
-              }}
-            />
-          </motion.div>
-        </motion.button>
+          {obj.name}
+          <motion.img 
+            src="/move-up-right.svg" 
+            alt="arrow"  
+            className="w-3.5 h-3.5 filter invert"
+            whileHover={{
+              scale: 1.15,
+              rotate: 12,
+              transition: { duration: 0.15 }
+            }}
+          />
+        </motion.a>
       ))}
     </div>
   );
