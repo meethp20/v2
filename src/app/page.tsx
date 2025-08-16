@@ -1,4 +1,5 @@
 
+import ExperienceBar from "./components/Experience";
 import Footer from "./components/footer";
 import FooterButtons from "./components/footrButtons";
 import Hero from "./components/hero";
@@ -10,6 +11,7 @@ export default function Home() {
       <div className="w-full ">
        <Hero />
        <Stacks />
+       <ExperienceBar />
        <Footer />
        </div>
     </div>

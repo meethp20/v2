@@ -3,86 +3,37 @@ import StackBar from "./StackBar"
 import { motion } from "framer-motion"
 
 export default function Stacks() {
-    // Animation variants for the main container
-    const containerVariants = {
-        hidden: { 
-            opacity: 0,
-            y: 30 
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: "easeOut",
-                staggerChildren: 0.3, // Delay between child animations
-                delayChildren: 0.2    // Initial delay before children start animating
-            }
-        }
-    }
+  return (
+    <motion.div
+      className="pt-[50px]"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.8,
+        ease: "easeOut",
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
+      }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      {/* Title */}
+      <motion.div
+        initial={{ opacity: 0, y: -20, scale: 0.9 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <div>Stacks</div>
+      </motion.div>
 
-    // Animation variants for the "Stacks" title
-    const titleVariants = {
-        hidden: { 
-            opacity: 0,
-            y: -20,
-            scale: 0.9
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                ease: "easeOut"
-            }
-        }
-    }
-
-    // Animation variants for the StackBar container
-    const stackBarVariants = {
-        hidden: { 
-            opacity: 0,
-            y: 20
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.7,
-                ease: "easeOut",
-                delay: 0.2 // Slight delay so title animates first
-            }
-        }
-    }
-
-    return (
-        <motion.div 
-            className="pt-[50px]"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            // Optional: Add viewport-based animation
-            viewport={{ once: true, amount: 0.3 }}
-            whileInView="visible"
-        >
-            {/* Animated title with glowing effect */}
-            <motion.div 
-                className=""
-                variants={titleVariants}
-            >
-                <div>
-                    Stacks
-                </div>
-            </motion.div>
-
-            {/* Animated StackBar container */}
-            <motion.div 
-                className="pt-3"
-                variants={stackBarVariants}
-            >
-                <StackBar />
-            </motion.div>
-        </motion.div>
-    )
+      {/* StackBar */}
+      <motion.div
+        className="pt-3"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+      >
+        <StackBar />
+      </motion.div>
+    </motion.div>
+  )
 }

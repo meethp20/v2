@@ -8,7 +8,7 @@ export default function Hero() {
 
   return (
     <motion.div
-      className="pt-[120px] flex justify-between "
+      className="pt-[70px] flex justify-between "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
