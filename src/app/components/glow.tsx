@@ -87,8 +87,9 @@
 import { Box, Lock, Search, Settings, Sparkles } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Smartphone } from "lucide-react";
+import { defaultValueTypes } from "motion";
 
-export function GlowingEffectDemo() {
+export default function GlowingEffectDemo() {
   return (
     <ul className="grid grid-cols-2 md:grid-cols-3 gap-3">
       <GridItem
